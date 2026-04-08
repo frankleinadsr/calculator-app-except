@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mathbuddy.vercel.app"),
   title: "MathBuddy — Your Friendly Math Helper",
   description:
     "A playful calculator that solves arithmetic, word problems, and image-based math with step-by-step explanations.",
