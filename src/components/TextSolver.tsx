@@ -83,7 +83,7 @@ export default function TextSolver({ onHistoryChange }: TextSolverProps) {
           setError("");
         }}
         placeholder="Type a math problem in plain English&#10;&#10;Examples:&#10;• What is 15% of 200?&#10;• If I split a $87.50 bill among 5 people, how much does each pay?&#10;• What's 18% tip on a $47.50 bill?"
-        className="w-full resize-none rounded-2xl border border-gray-200 bg-white p-4 text-gray-800 shadow-sm placeholder:text-gray-400 focus:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-100"
+        className="w-full resize-none rounded-2xl border border-gray-200 bg-white p-4 text-gray-800 shadow-sm ring-1 ring-gray-100 placeholder:text-gray-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
         rows={5}
         maxLength={2000}
       />
@@ -97,7 +97,7 @@ export default function TextSolver({ onHistoryChange }: TextSolverProps) {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className="mt-3 w-full rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 py-3 font-semibold text-white shadow-md transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-3 w-full rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 py-3 font-semibold text-white shadow-md transition-all hover:shadow-lg hover:from-indigo-600 hover:to-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? (
           <span className="inline-flex items-center gap-2">

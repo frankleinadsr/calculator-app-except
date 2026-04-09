@@ -89,7 +89,7 @@ export default function History({ refreshKey, onClear }: HistoryProps) {
         </p>
         <button
           onClick={handleClear}
-          className="rounded-lg px-3 py-1 text-xs font-medium text-red-500 transition-colors hover:bg-red-50"
+          className="rounded-xl px-3 py-1.5 text-xs font-semibold text-red-500 ring-1 ring-red-100 transition-colors hover:bg-red-50"
         >
           Clear History
         </button>
@@ -101,7 +101,7 @@ export default function History({ refreshKey, onClear }: HistoryProps) {
           return (
             <div
               key={entry.id}
-              className="rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-md"
+              className="rounded-2xl border border-gray-100 bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-md"
             >
               <button
                 onClick={() =>

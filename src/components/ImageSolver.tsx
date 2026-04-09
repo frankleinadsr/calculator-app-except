@@ -115,7 +115,7 @@ export default function ImageSolver({ onHistoryChange }: ImageSolverProps) {
         onDragOver={(e) => e.preventDefault()}
         onDrop={handleDrop}
         onClick={() => fileRef.current?.click()}
-        className="flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-300 bg-white p-8 transition-colors hover:border-blue-400 hover:bg-blue-50"
+        className="flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-300 bg-white p-8 shadow-sm transition-all hover:border-indigo-400 hover:bg-indigo-50/50 hover:shadow-md"
       >
         <input
           ref={fileRef}
@@ -168,7 +168,7 @@ export default function ImageSolver({ onHistoryChange }: ImageSolverProps) {
       <button
         onClick={handleSubmit}
         disabled={loading || !selectedFile.current}
-        className="mt-3 w-full rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 py-3 font-semibold text-white shadow-md transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-3 w-full rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 py-3 font-semibold text-white shadow-md transition-all hover:shadow-lg hover:from-indigo-600 hover:to-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {loading ? (
           <span className="inline-flex items-center gap-2">

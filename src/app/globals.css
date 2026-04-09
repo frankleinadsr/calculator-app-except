@@ -3,8 +3,38 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-brand-50: #f0f4ff;
+  --color-brand-100: #dbe4ff;
+  --color-brand-500: #4c6ef5;
+  --color-brand-600: #3b5bdb;
+  --color-brand-700: #364fc7;
 }
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Calculator button press effect */
+.calc-btn {
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+.calc-btn:active {
+  transform: scale(0.93);
+}
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Subtle gradient animation for the header */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
 }

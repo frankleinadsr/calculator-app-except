@@ -24,21 +24,30 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 via-white to-purple-50">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-indigo-50 via-white to-purple-50">
       {/* Header */}
-      <header className="border-b border-gray-100 bg-white/80 px-4 py-4 backdrop-blur-sm">
+      <header className="glass-card border-b border-white/60 px-4 py-4 shadow-sm">
         <div className="mx-auto flex max-w-2xl items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold text-gray-800">
-              MathBuddy
-            </h1>
-            <p className="text-xs text-gray-400">
-              Your friendly math helper
-            </p>
+          <div className="flex items-center gap-3">
+            <div className="animated-gradient flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-lg shadow-md">
+              <span className="font-bold text-white">M</span>
+            </div>
+            <div>
+              <h1 className="text-lg font-bold tracking-tight text-gray-900">
+                MathBuddy
+              </h1>
+              <p className="text-[11px] font-medium tracking-wide text-gray-400">
+                Your friendly math helper
+              </p>
+            </div>
           </div>
           <button
             onClick={() => setShowHistory(!showHistory)}
-            className="relative rounded-xl bg-gray-100 p-2.5 text-gray-600 transition-colors hover:bg-gray-200"
+            className={`relative rounded-xl p-2.5 transition-all ${
+              showHistory
+                ? "bg-indigo-100 text-indigo-600 shadow-sm"
+                : "bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+            }`}
             aria-label="Toggle history"
           >
             <svg
@@ -64,7 +73,7 @@ export default function Home() {
           <div>
             <button
               onClick={() => setShowHistory(false)}
-              className="mb-4 inline-flex items-center gap-1 text-sm text-blue-500 hover:text-blue-600"
+              className="mb-4 inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-medium text-indigo-500 transition-colors hover:bg-indigo-50 hover:text-indigo-600"
             >
               <svg
                 className="h-4 w-4"
@@ -79,25 +88,25 @@ export default function Home() {
                   d="M15 19l-7-7 7-7"
                 />
               </svg>
-              Back
+              Back to solver
             </button>
             <History refreshKey={historyKey} onClear={refreshHistory} />
           </div>
         ) : (
           <>
             {/* Tabs */}
-            <div className="mb-6 flex gap-1 rounded-2xl bg-gray-100 p-1">
+            <div className="mb-6 flex gap-1.5 rounded-2xl bg-gray-100/80 p-1.5 shadow-inner">
               {TABS.map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
-                  className={`flex-1 rounded-xl py-2.5 text-sm font-medium transition-all ${
+                  className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl py-2.5 text-sm font-semibold transition-all ${
                     activeTab === tab.key
-                      ? "bg-white text-gray-800 shadow-sm"
+                      ? "bg-white text-gray-800 shadow-md ring-1 ring-black/5"
                       : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
-                  <span className="mr-1">{tab.icon}</span>
+                  <span>{tab.icon}</span>
                   <span className="hidden sm:inline">{tab.label}</span>
                 </button>
               ))}
@@ -118,7 +127,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 bg-white/80 px-4 py-3 text-center text-xs text-gray-400 backdrop-blur-sm">
+      <footer className="glass-card border-t border-white/60 px-4 py-3 text-center text-xs font-medium text-gray-400">
         MathBuddy — Learn math, one problem at a time
       </footer>
     </div>

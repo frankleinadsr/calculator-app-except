@@ -111,37 +111,44 @@ export default function Calculator({ onHistoryChange }: CalculatorProps) {
   return (
     <div className="mx-auto w-full max-w-sm">
       {/* Display */}
-      <div className="mb-4 rounded-2xl bg-gray-900 p-4 text-right shadow-inner">
-        <p className="min-h-[1.5rem] text-sm text-gray-400 break-all">
+      <div className="mb-3 overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 p-5 shadow-lg">
+        <p className="min-h-[1.5rem] text-right text-sm font-medium tracking-wide text-gray-400 break-all">
           {expression || "\u00A0"}
         </p>
         {result && (
-          <p className="mt-1 text-3xl font-bold text-white">{result}</p>
+          <p className="mt-2 text-right text-4xl font-extrabold tracking-tight text-white">
+            {result}
+          </p>
         )}
         {error && (
-          <p className="mt-1 text-sm font-medium text-red-400">{error}</p>
+          <p className="mt-2 text-right text-sm font-medium text-red-400">
+            {error}
+          </p>
         )}
       </div>
 
       {/* Buttons */}
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-2.5">
         {BUTTONS.flat().map((label) => {
           const isOperator = ["÷", "×", "−", "+", "%"].includes(label);
           const isEquals = label === "=";
           const isClear = label === "C";
 
           let className =
-            "flex h-14 items-center justify-center rounded-xl text-lg font-semibold transition-all active:scale-95 ";
+            "calc-btn flex h-[56px] items-center justify-center rounded-2xl text-lg font-semibold shadow-sm ";
 
           if (isEquals) {
             className +=
-              "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md hover:shadow-lg";
+              "bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md hover:shadow-lg hover:from-indigo-600 hover:to-purple-700";
           } else if (isClear) {
-            className += "bg-red-100 text-red-600 hover:bg-red-200";
+            className +=
+              "bg-red-50 text-red-500 ring-1 ring-red-100 hover:bg-red-100";
           } else if (isOperator) {
-            className += "bg-blue-100 text-blue-600 hover:bg-blue-200";
+            className +=
+              "bg-indigo-50 text-indigo-600 ring-1 ring-indigo-100 hover:bg-indigo-100";
           } else {
-            className += "bg-gray-100 text-gray-800 hover:bg-gray-200";
+            className +=
+              "bg-white text-gray-800 ring-1 ring-gray-200 hover:bg-gray-50";
           }
 
           return (
@@ -156,8 +163,8 @@ export default function Calculator({ onHistoryChange }: CalculatorProps) {
         })}
       </div>
 
-      <p className="mt-3 text-center text-xs text-gray-400">
-        Tip: You can also type with your keyboard!
+      <p className="mt-4 text-center text-xs font-medium text-gray-400">
+        Tip: Use your keyboard to type expressions
       </p>
     </div>
   );
